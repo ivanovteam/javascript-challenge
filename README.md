@@ -25,6 +25,6 @@ Make sure you have a column for `date/time`, `city`, `state`, `country`, `shape`
 
 Use a date form in your HTML document and write JavaScript code that will listen for events and search through the `date/time` column to find rows that match user input.
 
-Dataset
+### Dataset
 
-UFO Sightings Data
+* [UFO Sightings Data](StarterCode/static/js/data.js)
