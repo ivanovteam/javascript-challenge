@@ -7,7 +7,7 @@ var tbody = d3.select("tbody");
 
 // creating a function to buid a table
 function buildTable(tableData){
-    // When the page loads, it needs to display the table
+
     tbody.html("");
     tableData.forEach((ufo) => {
       var row = tbody.append("tr");
@@ -29,9 +29,9 @@ buildTable(tableData);
 // creating an object filters
 filters = {};
 
+// creating a function that gets the input value and runs the handlechange funciton
 function filtering() {
   var inputElement = d3.select(this).select("input");
-  console.log(inputElement);
   var inputValue = inputElement.property("value");
   var elementID = inputElement.attr("id");
 
@@ -41,11 +41,11 @@ function filtering() {
   else {
     delete filters[elementID];
   }
-  // console.log(filters);
+  
 handleChange()
 }
 
-// creating a function to filter the data and build a table with the result
+// creating a function to use object filters data and build a table with the result
 function handleChange() {
   var filteredData=tableData;
   Object.entries(filters).forEach(([key,value]) => {
@@ -59,4 +59,5 @@ function handleChange() {
 
 }
 
+// returns any entriees by change event and calling the filtering function
 d3.selectAll(".filter").on("change", filtering);
