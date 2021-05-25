@@ -3,7 +3,7 @@
 var tableData = data;
 
 // get table references where table will be inserted
-var tbody = d3.select(".table").select("tbody");
+var tbody = d3.select("tbody");
 
 function buildTable(tableData){
     // When the page loads, it needs to display the table
@@ -16,9 +16,7 @@ function buildTable(tableData){
       });
     });
   };
-  // But if the table reloads then you may need to ensure the 
-    // previous output is cleared/overwritten from scratch 
-  // d3.event.preventDefault();
+ 
  
 // Build the table when the page loads
 buildTable(tableData);
@@ -27,11 +25,11 @@ buildTable(tableData);
 var button = d3.select("#filter-btn");
 
 // Select the form
-var form = d3.select("#form");
+var form = d3.select("#filters");
 
 // Create event handlers 
 button.on("click", handleClick);
-form.on("submit",handleClick);
+form.on("change",handleClick);
 
 d3.event.preventDefault();
 
