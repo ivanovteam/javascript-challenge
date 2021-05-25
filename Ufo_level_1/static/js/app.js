@@ -5,6 +5,7 @@ var tableData = data;
 // get table references where table will be inserted
 var tbody = d3.select("tbody");
 
+// creating a function to build a table with the objects from the array data.js
 function buildTable(tableData){
     // When the page loads, it needs to display the table
     tbody.html("");
@@ -31,13 +32,10 @@ var form = d3.select("#filters");
 button.on("click", handleClick);
 form.on("change",handleClick);
 
-d3.event.preventDefault();
 
+// creating a function to handle an event of a button click or change in the form, to filter
+//  the data based on the entered date and build a new table with the filteredData
 function handleClick() {
-
-  // Grab the datetime value from the filter
-  // Prevent the page from refreshing
-  // d3.event.preventDefault();
   
   // Select the input element and get the raw HTML node
   var inputElement = d3.select("#datetime");
@@ -49,18 +47,6 @@ function handleClick() {
 
   var filteredData = tableData.filter(ufo => ufo.datetime === inputValue);
   
-  // Check to see if a date was entered and filter the
-  // data using that date.
-
-  // Rebuild the table using the filtered data
-  // @NOTE: If no date was entered, then filteredData will
-  // just be the original tableData.
-  // take your filtered data and put it into the buildTable to rebuild the table with the filtered data
   buildTable(filteredData);
 }
 
-// Attach an event to listen for the form button that calls handleClick on a click of the filter button
-
-
-// // Build the table when the page loads
-// buildTable(tableData);
